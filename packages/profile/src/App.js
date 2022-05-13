@@ -11,7 +11,7 @@ export default ({history}) => {
     <Router history={history}>
       <Switch>
         <Route path="/profile/kristal-info" exact component={KristalInfo} />
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/profile" exact component={Dashboard} />
       </Switch>
     </Router>
   </div>);
