@@ -5,7 +5,7 @@ import App from "./App";
 
 const mount = (element, { onNavigate, defaultHistory, initialpath }) => {
   const history = defaultHistory || createMemoryHistory({
-    initialEntries: [initialpath]
+      initialEntries: [initialpath]
   });
   if(onNavigate) {
     history.listen(onNavigate);
@@ -23,7 +23,7 @@ const mount = (element, { onNavigate, defaultHistory, initialpath }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const element = document.querySelector("#marketing-root");
+  const element = document.querySelector("#profile-root");
   if (element) {
     mount(element, {defaultHistory: createBrowserHistory()});
   }

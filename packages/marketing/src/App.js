@@ -1,14 +1,18 @@
-import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { unstable_ClassNameGenerator as ClassNameGenerator } from '@mui/material/className';
-import Landing from './components/Landing';
+import React from "react";
+import { Switch, Route, Router } from "react-router-dom";
+import { unstable_ClassNameGenerator as ClassNameGenerator } from "@mui/material/className";
+import Explore from "./components/explore";
 
 ClassNameGenerator.configure((componentName) => `marketing-${componentName}`);
 
-export default () => {
-    return <div>
-             <BrowserRouter>
-                <Route exact path='/' component={Landing} />
-             </BrowserRouter>
+export default ({history}) => {
+  return (
+    <div>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={Explore} />
+        </Switch>
+      </Router>
     </div>
-}
+  );
+};

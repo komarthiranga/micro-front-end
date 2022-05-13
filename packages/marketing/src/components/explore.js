@@ -1,14 +1,6 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
-import StarIcon from "@mui/icons-material/StarBorder";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -19,7 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const Landing = () => {
+const Expore = () => {
   const tiers = [
     {
       title: "Free",
@@ -85,16 +77,16 @@ const Landing = () => {
   }
 
   const rows = [
-    createData("Structured Notes", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
-    createData("Structured Notes", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
-    createData("Structured Notes", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
-    createData("Structured Notes", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
-    createData("Structured Notes", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
+    createData("Structured Notes1", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
+    createData("Structured Notes2", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
+    createData("Structured Notes3", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
+    createData("Structured Notes4", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
+    createData("Structured Notes5", 'Single', 'KSGN001058', 'USD', '53,853.04', '53,853.04', '53,853.04', '53,853.04'),
   ];
 
   return (
     <>
-      <Grid containe sx={{ pt: 2, pb: 6, pl: 20, pr: 20 }}>
+      <Grid container sx={{ pt: 2, pb: 6, pl: 20, pr: 20 }}>
         <Grid item xs={12}>
           <Typography
             component="h1"
@@ -164,4 +156,4 @@ const Landing = () => {
     </>
   );
 };
-export default Landing;
+export default Expore;

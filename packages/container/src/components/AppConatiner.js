@@ -1,11 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
@@ -14,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import MarketingApp from './MarketingApp';
+import { useHistory } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -53,7 +48,23 @@ const footers = [
   },
 ];
 
-export default function PricingContent() {
+export default function AppConatiner({children, isSignedIn, onSignOut}) {
+  const history = useHistory();
+
+  const navigateToHome = () => {
+    history.push('/')
+  }
+
+  const navigateToLogin = () => {
+    if(isSignedIn) {
+      history.push('/');
+      onSignOut();
+    } else {
+      history.push('/auth/signin');
+    }
+
+  }
+
   return (
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -65,15 +76,15 @@ export default function PricingContent() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={navigateToHome}>
             <img src="https://staging-portal.kristal.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FKristalLogotype.fa9d7057.svg&w=384&q=75" alt="kristal.ai" />
           </Typography>
-          <nav>
+          {/* <nav>
             <Link
               variant="button"
               color="text.primary"
-              href="#"
               sx={{ my: 1, mx: 1.5 }}
+              onClick={navigateTo.bind(this, 'marketing')}
             >
               Profile
             </Link>
@@ -101,46 +112,17 @@ export default function PricingContent() {
             >
               Reports
             </Link>
-          </nav>
-          <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-            Login
+          </nav> */}
+          <Button variant="outlined" sx={{ my: 1, mx: 1.5 }} onClick={navigateToLogin}>
+            {isSignedIn ? 'Logout' : 'LogIn' }
           </Button>
         </Toolbar>
       </AppBar>
       
-        <MarketingApp />
+        {/* <MarketingApp /> */}
 
-      {/* Footer */}
-      <Container
-        maxWidth="md"
-        component="footer"
-        sx={{
-          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 8,
-          py: [3, 6],
-        }}
-      >
-        <Grid container spacing={4} justifyContent="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="text.primary" gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="text.secondary">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
-        </Grid>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
-      {/* End footer */}
+        {children}
+
     </React.Fragment>
   );
 }
