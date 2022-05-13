@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Switch, Route, Router } from "react-router-dom";
 import { unstable_ClassNameGenerator as ClassNameGenerator } from "@mui/material/className";
 import SignIn from "./components/Signin";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/Signup";
 
 ClassNameGenerator.configure((componentName) => `auth-${componentName}`);
 
