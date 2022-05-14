@@ -100,7 +100,7 @@ export default function Dashboard() {
           Kristal Micro Front End App's
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-         Devided a monolithic app into multiple, Smaller Applications.
+         Divide a monolithic app into multiple, Smaller Applications.
         </Typography>
       </Container>
       {/* End hero unit */}
