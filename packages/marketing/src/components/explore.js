@@ -97,7 +97,7 @@ export default function Dashboard() {
           color="text.primary"
           gutterBottom
         >
-          Kristal Micro Front End App's
+          Kristal.ai Micro Front End App's 
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
          Divide a monolithic app into multiple, Smaller Applications.
